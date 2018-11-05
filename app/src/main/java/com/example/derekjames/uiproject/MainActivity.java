@@ -11,8 +11,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    void TestFunction() {
-        String group = "Hello John Matt and Ryan";
+
+    void TestFunction2() {
+
+        String test = "test";
     }
     
 }

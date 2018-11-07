@@ -16,5 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
         String test = "test";
     }
-    
+
+    void TestFunc2(){
+
+        //test john
+    }
 }

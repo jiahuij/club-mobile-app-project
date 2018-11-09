@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">UIProject</string>
+    <string name="app_name">Biola</string>
     <string name="title_activity_chime__main">Chime_Main</string>
+    <string name="MainMenuchimeBtnName">Chime</string>
+    <string name="MainMenuBuildingHourBtnName">Building Hours</string>
+    <string name="MainMenuCampusMapBtnName">Campus Map</string>
+    <string name="MainMenuEateriesBtnName">Eateries</string>
+    <string name="main_menu_red_background">main menu red background</string>
 </resources>

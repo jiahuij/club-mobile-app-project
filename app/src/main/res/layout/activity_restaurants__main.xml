@@ -6,62 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Restaurants_Main">
 
-    <ImageView
-        android:id="@+id/TabBarBackground"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/TabHeight"
-        android:contentDescription="@string/TabBarBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:color/holo_red_dark" />
+  <android.support.design.widget.BottomNavigationView
+      android:id="@+id/tabBar"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/TabBarHeight"
+      android:background="@color/TabBarColor"
+      app:itemBackground="@color/TabBarColor"
+      app:itemIconTint="@color/tab_bar_colors"
+      app:itemTextColor="@color/tab_bar_colors"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:menu="@menu/tab_items" />
 
-    <ImageView
-        android:id="@+id/ChimesIcon"
-        android:layout_width="30dp"
-        android:layout_height="@dimen/IconHeight"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="@dimen/IconConstraintLeft"
-        android:layout_marginStart="@dimen/IconConstraintLeft"
-        android:contentDescription="@string/chimesicon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/chimesicon" />
-
-    <ImageView
-        android:id="@+id/MapIcon"
-        android:layout_width="30dp"
-        android:layout_height="@dimen/IconHeight"
-        android:layout_marginBottom="@dimen/IconConstraintBottom"
-        android:layout_marginLeft="@dimen/IconConstraintLeft"
-        android:layout_marginStart="@dimen/IconConstraintLeft"
-        android:contentDescription="@string/mapicon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ChimesIcon"
-        app:srcCompat="@drawable/mapicon" />
-
-    <ImageView
-        android:id="@+id/BuildingHoursIcon"
-        android:layout_width="@dimen/IconWidth"
-        android:layout_height="@dimen/IconHeight"
-        android:layout_marginBottom="@dimen/IconConstraintBottom"
-        android:layout_marginEnd="@dimen/IconConstraintRight"
-        android:layout_marginRight="@dimen/IconConstraintRight"
-        android:contentDescription="@string/buildinghoursicon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/RestaurantsIcon"
-        app:srcCompat="@drawable/buildinghours" />
-
-    <ImageView
-        android:id="@+id/RestaurantsIcon"
-        android:layout_width="@dimen/IconWidth"
-        android:layout_height="@dimen/IconHeight"
-        android:layout_marginBottom="@dimen/IconConstraintBottom"
-        android:layout_marginEnd="@dimen/IconConstraintRight"
-        android:layout_marginRight="@dimen/IconConstraintRight"
-        android:contentDescription="@string/restaurantsicon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/restaurantsicon" />
 </android.support.constraint.ConstraintLayout>

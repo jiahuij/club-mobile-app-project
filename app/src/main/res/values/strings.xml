@@ -6,9 +6,15 @@
     <string name="MainMenuCampusMapBtnName">Campus Map</string>
     <string name="MainMenuEateriesBtnName">Eateries</string>
     <string name="main_menu_red_background">main menu red background</string>
-    <string name="TabBarBackground">TabBarBackground</string>
     <string name="chimesicon">chimesicon</string>
     <string name="mapicon">mapicon</string>
     <string name="buildinghoursicon">buildinghoursicon</string>
     <string name="restaurantsicon">restaurantsicon</string>
+    <string name="chimesiconlabel">Chimes</string>
+    <string name="mapiconlabel">Map</string>
+    <string name="buildinghoursiconlabel">Buildings</string>
+    <string name="restaurantsiconlabel">Dining</string>
+    <string name="tab_bar">tab_bar</string>
+
+
 </resources>

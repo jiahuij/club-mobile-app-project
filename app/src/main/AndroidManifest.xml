@@ -13,20 +13,23 @@
         <activity android:name=".Chime_Full_Article" />
         <activity android:name=".Map" />
         <activity android:name=".Building_Hours" />
-        <!--<activity android:name=".Restaurants_Main" />-->
+        <!-- <activity android:name=".Restaurants_Main" /> -->
         <activity android:name=".Restaurants_Food_Menus" />
-        <activity android:name=".Restaurants_Main">
+        <activity android:name=".Main_Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Restaurants_Main" />
         <activity
             android:name=".Chime_Main_Tab"
-            android:label="@string/title_activity_chime__main__tab"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:label="@string/title_activity_chime__main__tab"></activity>
+        <activity
+            android:name=".temp"
+            android:label="@string/title_activity_temp"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

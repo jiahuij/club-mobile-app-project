@@ -13,9 +13,9 @@
         <activity android:name=".Chime_Full_Article" />
         <activity android:name=".Map" />
         <activity android:name=".Building_Hours" />
-        <activity android:name=".Restaurants_Main" />
+        <!--<activity android:name=".Restaurants_Main" />-->
         <activity android:name=".Restaurants_Food_Menus" />
-        <activity android:name=".Main_Menu">
+        <activity android:name=".Restaurants_Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

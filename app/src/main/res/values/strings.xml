@@ -15,6 +15,21 @@
     <string name="buildinghoursiconlabel">Buildings</string>
     <string name="restaurantsiconlabel">Dining</string>
     <string name="tab_bar">tab_bar</string>
+    <string name="Chime_news_Btn_Name">NEWS</string>
+    <string name="Chime_sports_Btn_Name">sports</string>
+    <string name="Chime_photo_video_Btn_Name">Photo_Video</string>
+    <string name="Chime_archive_Btn_Name">Archives</string>
+    <string name="Chime_opinions_Btn_Name">Opinions</string>
+    <string name="title_activity_chime__main__tab">Chime_Main_Tab</string>
+    <string name="tab_text_1">News</string>
+    <string name="tab_text_2">Sports</string>
+    <string name="tab_text_3">Entertainment</string>
+    <string name="tab_text_4">Opinions</string>
+    <string name="tab_text_5">Photo Video</string>
+    <string name="tab_text_6">Archives</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="read_more_btn">Read More</string>
 
 
 </resources>

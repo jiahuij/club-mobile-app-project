@@ -22,7 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Chime_Main"></activity>
+        <activity
+            android:name=".Chime_Main_Tab"
+            android:label="@string/title_activity_chime__main__tab"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

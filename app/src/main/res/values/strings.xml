@@ -31,5 +31,12 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="read_more_btn">Read More</string>
 
+    <string-array name="Restaurants">
+        <item>Eagles Nest</item>
+        <item>Common Grounds</item>
+        <item>Heritage Cafe</item>
+        <item>Talon/item</item>
+
+    </string-array>
 
 </resources>

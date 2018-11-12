@@ -30,6 +30,7 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="read_more_btn">Read More</string>
+    <string name="title_activity_temp">temp</string>
 
     <string-array name="Restaurants">
         <item>Eagles Nest</item>

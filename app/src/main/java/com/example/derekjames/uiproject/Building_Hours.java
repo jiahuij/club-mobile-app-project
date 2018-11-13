@@ -30,7 +30,7 @@ public class Building_Hours extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()) {
+                switch (item.getItemId()) {//hhh
 
                     case R.id.chimesicon : ///////Go to chimes page
                         Intent intent1 = new Intent(Building_Hours.this,

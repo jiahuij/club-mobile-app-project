@@ -6,13 +6,28 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 
 public class Chime_ArticleList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_chime__article_list);
+
+        Button Article1Btn = findViewById(R.id.Article1Btn);
+
+        Article1Btn.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Chime_ArticleList.this,
+                        com.example.derekjames.uiproject.Chime_Full_Article.class);
+                startActivity(intent);
+            }
+        });
 
         /////Switch between tabs
         BottomNavigationView tabBar = (BottomNavigationView) findViewById(R.id.tabBar);

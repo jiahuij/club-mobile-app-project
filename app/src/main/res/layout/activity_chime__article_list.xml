@@ -34,11 +34,13 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/Article1Btn"
                 android:layout_width="353dp"
                 android:layout_height="175dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/chimesarticle1"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

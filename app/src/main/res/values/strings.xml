@@ -32,7 +32,7 @@
     <string name="read_more_btn">Read More</string>
     <string name="title_activity_temp">temp</string>
     <string name="chimesarticlelist">Chimes Article List</string>
-
+    <string name="chimesfullarticle">Chimes Article</string>
 
     <string-array name="Restaurants">
         <item>Eagles Nest</item>

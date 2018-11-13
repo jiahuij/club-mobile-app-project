@@ -8,18 +8,6 @@
     tools:context=".Chime_Main_Tab$PlaceholderFragment">
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="15dp"
-        android:clickable="false"
-        android:src="@drawable/read_more_icon"
-        app:backgroundTint="@color/TabBarColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -40,11 +28,14 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:contentDescription="@string/example_pic_description"
                 android:src="@drawable/chime_example2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/textView"
@@ -56,19 +47,25 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Men’s and women’s cross country both claim NCCAA championships"
+                android:text="@string/men_s_and_women_s_cross_country_both_claim_nccaa_championships"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.313" />
+                app:layout_constraintVertical_bias="0.313"
+                android:focusable="true" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/chime_news_example_pic" />
+                android:clickable="true"
+                android:contentDescription="@string/example_string_mapiconlabel"
+                android:focusableInTouchMode="true"
+                android:src="@drawable/chime_news_example_pic"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -80,14 +77,15 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:clickable="true"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="The woman behind the Special Olympics at Biola"
+                android:text="@string/the_woman_behind_the_special_olympics_at_biola"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.313" />
-
+                app:layout_constraintVertical_bias="0.313"
+                android:focusable="true" />
         </LinearLayout>
     </ScrollView>
 

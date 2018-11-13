@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/mainMenuBackGroundImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="280dp"
@@ -21,15 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/TabBarColor" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="60dp"
-        android:layout_height="64dp"
-        android:clickable="false"
-        app:srcCompat="@drawable/right_arrow_icon"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="130dp" />
 
     <Button
         android:id="@+id/ChimeNewsBtn"
@@ -109,7 +100,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        android:contentDescription="@string/biola_icon_white_description"
+        app:layout_constraintEnd_toEndOf="@+id/mainMenuBackGroundImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/biola_icon" />

@@ -21,6 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Chime_Main_Tab extends AppCompatActivity {
@@ -34,6 +36,8 @@ public class Chime_Main_Tab extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    private FloatingActionButton readMoreBtn;
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -45,6 +49,17 @@ public class Chime_Main_Tab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_chime__main__tab);
+
+        readMoreBtn = findViewById(R.id.readMoreBtn);
+
+        readMoreBtn.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Chime_Main_Tab.this,
+                        com.example.derekjames.uiproject.Chime_ArticleList.class);
+                startActivity(intent);
+            }
+        });
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -58,7 +73,6 @@ public class Chime_Main_Tab extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
 
 
         /////Switch between tabs
@@ -151,6 +165,7 @@ public class Chime_Main_Tab extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
             View rootView = inflater.inflate(R.layout.fragment_chime__main__tab, container, false);
             return rootView;
         }

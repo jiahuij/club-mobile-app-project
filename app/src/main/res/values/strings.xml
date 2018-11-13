@@ -31,9 +31,15 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="read_more_btn">Read More</string>
     <string name="title_activity_temp">temp</string>
+    <string name="chime_icon_desciption">chime icon</string>
+    <string name="biola_icon_white_description">biola_icon_white</string>
+    <string name="men_s_and_women_s_cross_country_both_claim_nccaa_championships">Men’s and women’s cross country both claim NCCAA championships</string>
+    <string name="example_string_mapiconlabel">example @string/mapiconlabel</string>
+    <string name="the_woman_behind_the_special_olympics_at_biola">The woman behind the Special Olympics at Biola</string>
+    <string name="example_string_mapicon">example @string/mapicon</string>
+    <string name="example_pic_description">example pic description</string>
     <string name="chimesarticlelist">Chimes Article List</string>
     <string name="chimesfullarticle">Chimes Article</string>
-
     <string-array name="Restaurants">
         <item>Eagles Nest</item>
         <item>Common Grounds</item>

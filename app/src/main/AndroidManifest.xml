@@ -26,10 +26,7 @@
         <activity
             android:name=".Chime_Main_Tab"
             android:label="@string/title_activity_chime__main__tab"></activity>
-        <activity
-            android:name=".temp"
-            android:label="@string/title_activity_temp"
-            android:theme="@style/AppTheme"></activity>
+
     </application>
 
 </manifest>

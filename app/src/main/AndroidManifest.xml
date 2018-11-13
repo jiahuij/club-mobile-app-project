@@ -14,15 +14,15 @@
         <activity android:name=".Map" />
         <activity android:name=".Building_Hours" />
         <!-- <activity android:name=".Restaurants_Main" /> -->
-        <activity android:name=".Restaurants_Food_Menus" />
-        <activity android:name=".Main_Menu">
+        <activity android:name=".Restaurants_Main" />
+        <activity android:name=".Restaurants_Food_Menus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Restaurants_Main" />
+        <activity android:name=".Main_Menu" />
         <activity
             android:name=".Chime_Main_Tab"
             android:label="@string/title_activity_chime__main__tab"></activity>

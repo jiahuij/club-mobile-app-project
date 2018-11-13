@@ -6,11 +6,13 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,7 @@ public class Restaurants_Main extends AppCompatActivity {
                 "Heritage Cafe",
                 "Talon",
                 "Caf",
+                "Blackstone Cafe",
                 "Coffee Cart"
         };
         final ListView restaurantListView = (ListView) findViewById(R.id.RestaurantsListView);
@@ -39,7 +42,9 @@ public class Restaurants_Main extends AppCompatActivity {
                 View view = super.getView(pos, convertView,parent);
                 ViewGroup.LayoutParams parameters = view.getLayoutParams();
                 parameters.height = 400;
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
                 view.setLayoutParams(parameters);
+                text.setTextSize(30);
                 return  view;
             }
         };

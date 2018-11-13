@@ -22,15 +22,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/TabBarColor" />
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="60dp"
+        android:layout_height="64dp"
+        android:clickable="false"
+        app:srcCompat="@drawable/right_arrow_icon"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="130dp" />
+
     <Button
         android:id="@+id/ChimeNewsBtn"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="80dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="130dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:text="@string/MainMenuchimeBtnName"
         android:textSize="25sp"
@@ -44,50 +53,65 @@
         android:id="@+id/BuildingHourBtn"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="80dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="50dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:text="@string/MainMenuBuildingHourBtnName"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ChimeNewsBtn" />
 
     <Button
         android:id="@+id/CampusMapBtn"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="80dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="50dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:text="@string/MainMenuCampusMapBtnName"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/BuildingHourBtn" />
 
     <Button
         android:id="@+id/CampusFoodBtn"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="80dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="50dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:text="@string/MainMenuEateriesBtnName"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/CampusMapBtn" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="101dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/biola_icon" />
+
 </android.support.constraint.ConstraintLayout>

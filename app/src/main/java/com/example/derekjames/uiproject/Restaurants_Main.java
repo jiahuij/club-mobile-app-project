@@ -45,9 +45,6 @@ public class Restaurants_Main extends AppCompatActivity {
                 R.drawable.coffeecart
         };
         final ListView restaurantListView = (ListView) findViewById(R.id.RestaurantsListView);
-
-
-
         final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray));
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
             @Override public View getView(int pos, View convertView, ViewGroup parent) {

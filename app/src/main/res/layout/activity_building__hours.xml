@@ -19,4 +19,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/tab_items" />
 
+    <ListView
+        android:id="@+id/BuildingHoursListView"
+        android:layout_width="368dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="75dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/tabBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="75dp"
+        android:gravity="fill_vertical"
+        android:text="Building Hours"
+        android:textColor="@color/TabBarColor"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/BuildingHoursListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/BuildingHoursListView"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/biola_icon_red" />
+
+
 </android.support.constraint.ConstraintLayout>

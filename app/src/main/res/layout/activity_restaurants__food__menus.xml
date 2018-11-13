@@ -33,6 +33,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/tab_items" />
 
+
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="289dp"
@@ -64,14 +66,14 @@
         app:srcCompat="@drawable/biola_icon_red" />
 
     <ListView
+        android:id="@+id/RestaurantsMenuListView"
         android:layout_width="368dp"
-        android:layout_height="363dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
         app:layout_constraintBottom_toTopOf="@+id/tabBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

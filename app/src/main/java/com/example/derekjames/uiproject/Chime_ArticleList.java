@@ -41,21 +41,25 @@ public class Chime_ArticleList extends AppCompatActivity {
                     case R.id.chimesicon : ///////Go to chimes page
                         Intent intent1 = new Intent(Chime_ArticleList.this,
                                 com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         return true;
                     case R.id.mapicon :
                         Intent intent2 = new Intent(Chime_ArticleList.this,
                                 com.example.derekjames.uiproject.Map.class);
+                        intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent2);
                         return true;
                     case R.id.buildinghoursicon :
                         Intent intent3 = new Intent(Chime_ArticleList.this,
                                 com.example.derekjames.uiproject.Building_Hours.class);
+                        intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         return true;
                     case R.id.restaurantsicon :
                         Intent intent4 = new Intent(Chime_ArticleList.this,
                                 com.example.derekjames.uiproject.Restaurants_Main.class);
+                        intent4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent4);
                         return true;
                 }

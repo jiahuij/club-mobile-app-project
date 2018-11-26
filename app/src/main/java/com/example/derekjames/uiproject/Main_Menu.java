@@ -27,6 +27,7 @@ public class Main_Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Main_Menu.this,
                         com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
@@ -36,6 +37,7 @@ public class Main_Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Main_Menu.this,
                         com.example.derekjames.uiproject.Building_Hours.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
@@ -45,6 +47,7 @@ public class Main_Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Main_Menu.this,
                         com.example.derekjames.uiproject.Map.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
@@ -54,6 +57,7 @@ public class Main_Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Main_Menu.this,
                         com.example.derekjames.uiproject.Restaurants_Main.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });

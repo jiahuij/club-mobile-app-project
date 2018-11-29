@@ -28,7 +28,6 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         setContentView(R.layout.activity_restaurants__food__menus);
 
 
-
         /////Switch between tabs
         BottomNavigationView tabBar = (BottomNavigationView) findViewById(R.id.tabBar);
         disableTabBarShift(tabBar);
@@ -70,6 +69,10 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         });
         ////////////////////////////////////////
 
+        Intent startIntent = getIntent();
+        String restaurantName = startIntent.getStringExtra("RestaurantName");
+        TextView restaurantNameTextView = (TextView) findViewById(R.id.RestaurantTitle);
+        restaurantNameTextView.setText(restaurantName);
 
         ////////////////adds array into the listview
        String[] restaurantsArray = new String[] {

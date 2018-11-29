@@ -31,7 +31,7 @@ public class Restaurants_Main extends AppCompatActivity {
         setContentView(R.layout.activity_restaurants__main);
 
     ////////////creates and formats the listView
-        String[] restaurantsArray = new String[] {
+        final String[] restaurantsArray = new String[] {
                 "Eagles Nest",
                 "Common Grounds",
                 "Heritage Cafe",
@@ -108,12 +108,32 @@ public class Restaurants_Main extends AppCompatActivity {
         ////////////////////////////////////////
 
 
+        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              Log.d("Position", String.valueOf(position));
+              String restaurant = restaurantsArray[position];
+                Intent intent = new Intent(Restaurants_Main.this,
+                        com.example.derekjames.uiproject.Restaurants_Food_Menus.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("RestaurantName", restaurant);
+                startActivity(intent);
+          }
+        };
+        restaurantListView.setOnItemClickListener(itemClickListener);
 
 
 
 
 
     }
+
+
+
+
+
+
+
 
 
 

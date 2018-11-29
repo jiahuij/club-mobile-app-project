@@ -2,6 +2,8 @@ package com.example.derekjames.uiproject;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +16,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +27,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
 
 public class Chime_Main_Tab extends AppCompatActivity {
 
@@ -77,6 +82,8 @@ public class Chime_Main_Tab extends AppCompatActivity {
 
         /////Switch between tabs
         BottomNavigationView tabBar = (BottomNavigationView) findViewById(R.id.tabBar);
+        disableTabBarShift(tabBar);
+
         tabBar.setSelectedItemId(R.id.chimesicon);
         tabBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -198,4 +205,33 @@ public class Chime_Main_Tab extends AppCompatActivity {
             return 3;
         }
     }
+
+
+
+
+
+
+    private void  disableTabBarShift(BottomNavigationView view) {
+        BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
+        try {
+            Field shiftingMode = tabBar.getClass().getDeclaredField("mShiftingMode");
+            shiftingMode.setAccessible(true);
+            shiftingMode.setBoolean(tabBar, false);
+            shiftingMode.setAccessible(false);
+            for (int i = 0; i < tabBar.getChildCount(); i++) {
+                BottomNavigationItemView item = (BottomNavigationItemView) tabBar.getChildAt(i);
+                item.setShiftingMode(false);
+                item.setChecked(item.getItemData().isChecked());
+            }
+        }catch (NoSuchFieldException e)
+        {
+            Log.e("BNVHelper", "Unable to get shift mode field", e);
+        }catch (IllegalAccessException e)
+        {
+            Log.e("BNVHelper", "Unable to change value of shift mode", e);
+        }
+    }
+
+
+
 }

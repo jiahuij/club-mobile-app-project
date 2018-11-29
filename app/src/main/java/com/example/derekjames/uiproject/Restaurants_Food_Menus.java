@@ -2,9 +2,12 @@ package com.example.derekjames.uiproject;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,6 +31,8 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
 
         /////Switch between tabs
         BottomNavigationView tabBar = (BottomNavigationView) findViewById(R.id.tabBar);
+        disableTabBarShift(tabBar);
+
         tabBar.setSelectedItemId(R.id.restaurantsicon);
         tabBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -95,4 +101,30 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
 
 
     }
+
+
+
+
+    private void  disableTabBarShift(BottomNavigationView view) {
+        BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
+        try {
+            Field shiftingMode = tabBar.getClass().getDeclaredField("mShiftingMode");
+            shiftingMode.setAccessible(true);
+            shiftingMode.setBoolean(tabBar, false);
+            shiftingMode.setAccessible(false);
+            for (int i = 0; i < tabBar.getChildCount(); i++) {
+                BottomNavigationItemView item = (BottomNavigationItemView) tabBar.getChildAt(i);
+                item.setShiftingMode(false);
+                item.setChecked(item.getItemData().isChecked());
+            }
+        }catch (NoSuchFieldException e)
+        {
+            Log.e("BNVHelper", "Unable to get shift mode field", e);
+        }catch (IllegalAccessException e)
+        {
+            Log.e("BNVHelper", "Unable to change value of shift mode", e);
+        }
+    }
+
+
 }

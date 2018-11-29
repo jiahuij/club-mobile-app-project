@@ -29,7 +29,7 @@ public class Building_Hours extends AppCompatActivity {
 
         /////Switch between tabs
         BottomNavigationView tabBar = (BottomNavigationView) findViewById(R.id.tabBar);
-        disableShift(tabBar);
+        disableTabBarShift(tabBar);
         tabBar.setSelectedItemId(R.id.buildinghoursicon);
         tabBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -97,7 +97,7 @@ public class Building_Hours extends AppCompatActivity {
     }
 
 
-    private void  disableShift(BottomNavigationView view) {
+    private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {
             Field shiftingMode = tabBar.getClass().getDeclaredField("mShiftingMode");

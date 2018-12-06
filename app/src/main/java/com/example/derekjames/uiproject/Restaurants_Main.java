@@ -2,6 +2,7 @@ package com.example.derekjames.uiproject;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -22,7 +23,11 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
+import java.io.IOException;
 public class Restaurants_Main extends AppCompatActivity {
 
     @Override
@@ -122,18 +127,47 @@ public class Restaurants_Main extends AppCompatActivity {
         };
         restaurantListView.setOnItemClickListener(itemClickListener);
 
-
-
-
+        new jsoupconnect().execute();
 
     }
 
 
+    public class jsoupconnect extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String url = "https://www.biola.edu/dining-services/locations";
+            String html = "";
+            try {
+                Document doc = Jsoup.connect(url).maxBodySize(0).get();
+                String title = doc.title();
+                html = doc.html();
+                Element element = doc.body();
+                //Log.d("html", String.valueOf(element));
+
+                Log.d("title", title);
+            }catch (IOException e) {
+
+            }
+            Log.d("html", html);
 
 
 
+            return null;
+        }
+    }
 
 
+  /*  void jsoupTest() {
+        String url = "https://www.biola.edu/dining-services/locations";
+        try {
+            Document doc = Jsoup.connect(url).get();
+            String title = doc.title();
+            Log.d("title", title);
+        }catch (IOException e) {
+
+        }
+    }*/
 
 
 

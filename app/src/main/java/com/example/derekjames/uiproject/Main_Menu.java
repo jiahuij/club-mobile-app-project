@@ -36,7 +36,7 @@ public class Main_Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Main_Menu.this,
-                        com.example.derekjames.uiproject.Building_Hours.class);
+                        com.example.derekjames.uiproject.Hours.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }

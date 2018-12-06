@@ -1,5 +1,6 @@
 package com.example.derekjames.uiproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -79,6 +80,7 @@ public class Chime_ArticleList extends AppCompatActivity {
 
 
 
+    @SuppressLint("RestrictedApi")
     private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {

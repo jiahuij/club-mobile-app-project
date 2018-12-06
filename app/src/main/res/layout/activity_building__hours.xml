@@ -23,7 +23,7 @@
         app:menu="@menu/tab_items" />
 
     <ListView
-        android:id="@+id/BuildingHoursListView"
+        android:id="@+id/frag1_building_hour_listView"
         android:layout_width="368dp"
         android:layout_height="0dp"
         android:layout_marginTop="75dp"
@@ -50,7 +50,7 @@
         android:text="Building Hours"
         android:textColor="@color/TabBarColor"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/BuildingHoursListView"
+        app:layout_constraintBottom_toTopOf="@+id/frag1_building_hour_listView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/BuildingHoursListView"
+        app:layout_constraintBottom_toTopOf="@+id/frag1_building_hour_listView"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

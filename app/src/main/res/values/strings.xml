@@ -46,7 +46,9 @@
         <item>Heritage Cafe</item>
         <item>Talon/item</item>
     </string-array>
-
+    <string name="title_activity_hours">activity_hours</string>
+    <string name="chapel_hours_tab_name">Chapel Hours</string>
+    <string name="building_hours_tab_name">Building Hours</string>
 
 
 </resources>

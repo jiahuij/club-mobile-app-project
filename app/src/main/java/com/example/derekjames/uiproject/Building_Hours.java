@@ -1,5 +1,6 @@
 package com.example.derekjames.uiproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -79,7 +80,7 @@ public class Building_Hours extends AppCompatActivity {
                 "Building 5     12:00pm-8:00pm",
                 "Building 6     12:00pm-8:00pm",
         };
-        final ListView restaurantListView = (ListView) findViewById(R.id.BuildingHoursListView);
+        final ListView restaurantListView = (ListView) findViewById(R.id.frag1_building_hour_listView);
         final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray));
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
             @Override public View getView(int pos, View convertView, ViewGroup parent) {
@@ -97,6 +98,7 @@ public class Building_Hours extends AppCompatActivity {
     }
 
 
+    @SuppressLint("RestrictedApi")
     private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {
@@ -117,10 +119,6 @@ public class Building_Hours extends AppCompatActivity {
             Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
-
-
-
-
 
 
 }

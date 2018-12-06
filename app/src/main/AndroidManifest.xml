@@ -25,8 +25,11 @@
         <activity android:name=".Restaurants_Food_Menus" />
         <activity
             android:name=".Chime_Main_Tab"
-            android:label="@string/title_activity_chime__main__tab"></activity>
-
+            android:label="@string/title_activity_chime__main__tab" />
+        <activity
+            android:name=".Hours"
+            android:label="@string/title_activity_hours"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.derekjames.uiproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -53,7 +54,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                         return true;
                     case R.id.buildinghoursicon :
                         Intent intent3 = new Intent(Restaurants_Food_Menus.this,
-                                com.example.derekjames.uiproject.Building_Hours.class);
+                                com.example.derekjames.uiproject.Hours.class);
                         intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         return true;
@@ -108,6 +109,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
 
 
 
+    @SuppressLint("RestrictedApi")
     private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {

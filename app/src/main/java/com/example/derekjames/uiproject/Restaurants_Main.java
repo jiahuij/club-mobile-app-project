@@ -1,5 +1,6 @@
 package com.example.derekjames.uiproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.AsyncTask;
@@ -96,7 +97,7 @@ public class Restaurants_Main extends AppCompatActivity {
                         return true;
                     case R.id.buildinghoursicon :
                         Intent intent3 = new Intent(Restaurants_Main.this,
-                                com.example.derekjames.uiproject.Building_Hours.class);
+                                com.example.derekjames.uiproject.Hours.class);
                         intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         return true;
@@ -158,20 +159,9 @@ public class Restaurants_Main extends AppCompatActivity {
     }
 
 
-  /*  void jsoupTest() {
-        String url = "https://www.biola.edu/dining-services/locations";
-        try {
-            Document doc = Jsoup.connect(url).get();
-            String title = doc.title();
-            Log.d("title", title);
-        }catch (IOException e) {
-
-        }
-    }*/
 
 
-
-
+    @SuppressLint("RestrictedApi")
     private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {

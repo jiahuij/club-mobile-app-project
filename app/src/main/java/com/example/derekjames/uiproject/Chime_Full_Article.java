@@ -44,7 +44,7 @@ public class Chime_Full_Article extends AppCompatActivity {
                         return true;
                     case R.id.buildinghoursicon :
                         Intent intent3 = new Intent(Chime_Full_Article.this,
-                                com.example.derekjames.uiproject.Building_Hours.class);
+                                com.example.derekjames.uiproject.Hours.class);
                         intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         return true;

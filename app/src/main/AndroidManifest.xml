@@ -12,7 +12,6 @@
         <activity android:name=".Chime_ArticleList" />
         <activity android:name=".Chime_Full_Article" />
         <activity android:name=".Map" />
-        <activity android:name=".Building_Hours" />
         <!-- <activity android:name=".Restaurants_Main" /> -->
         <activity android:name=".Restaurants_Main" />
         <activity android:name=".Main_Menu">

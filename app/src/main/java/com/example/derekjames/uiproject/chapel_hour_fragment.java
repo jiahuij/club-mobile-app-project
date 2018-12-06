@@ -8,33 +8,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public class hour_tab_frag_1 extends Fragment {
+public class chapel_hour_fragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.chapel_hour_fragment,container,false);
 
-        View view = inflater.inflate(R.layout.building_hours_fragment,container,false);
         ////////////////adds array into the listview
         String[] restaurantsArray = new String[] {
-                "Building 1     12:00pm-8:00pm",
-                "Building 2     12:00pm-8:00pm",
-                "Building 3     12:00pm-8:00pm",
-                "Building 4     12:00pm-8:00pm",
-                "Building 5     12:00pm-8:00pm",
-                "Building 6     12:00pm-8:00pm",
+                "Chapel 1     12:00pm-8:00pm",
+                "Chapel 2     12:00pm-8:00pm",
+                "Chapel 3     12:00pm-8:00pm",
+                "Chapel 4     12:00pm-8:00pm",
+                "Chapel 5     12:00pm-8:00pm",
+                "Chapel 6     12:00pm-8:00pm",
         };
 
-        ListView listView = view.findViewById(R.id.buildingHour_listView);
+        ListView listView = view.findViewById(R.id.chapelHour_listView);
 
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
@@ -46,8 +41,4 @@ public class hour_tab_frag_1 extends Fragment {
 
         return view;
     }
-
-
 }
-
-

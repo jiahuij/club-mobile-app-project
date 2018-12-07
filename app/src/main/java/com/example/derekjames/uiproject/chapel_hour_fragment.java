@@ -10,39 +10,63 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.jsoup.Jsoup;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 
 public class chapel_hour_fragment extends Fragment {
 
-    TextView tryText;
+    final int MAX_CHAPEL_NUM = 20;
+    static int chapelCount = 0;
+
+
+    private class chapelInfo
+    {
+        String date;
+        String title;
+        String speaker;
+        String location;
+
+        chapelInfo(String date, String title, String speaker, String location)
+        {
+            this.date = date;
+            this.title = title;
+            this.speaker = speaker;
+            this.location = location;
+        }
+    }chapelInfo [] chapel = new chapelInfo[MAX_CHAPEL_NUM];
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.chapel_hour_fragment,container,false);
-        tryText = view.findViewById(R.id.tryText);
 
+        try {
+            Void ab = new Connection().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        new Connection().execute();
+        String[] restaurantsArray = new String[chapelCount];
+        String buf = "";
+        for(int i = 0; i<chapelCount; i++)
+        {
 
+            buf=chapel[i].date+="\n";
+            buf+=chapel[i].title+="\n";
+            buf+=chapel[i].speaker+="\n";
+            buf+=chapel[i].location;
+            restaurantsArray[i]=buf;
 
-        ////////////////adds array into the listview
-        String[] restaurantsArray = new String[] {
-                "Chapel 1     12:00pm-8:00pm",
-                "Chapel 2     12:00pm-8:00pm",
-                "Chapel 3     12:00pm-8:00pm",
-                "Chapel 4     12:00pm-8:00pm",
-                "Chapel 5     12:00pm-8:00pm",
-                "Chapel 6     12:00pm-8:00pm",
-        };
+        }
 
         ListView listView = view.findViewById(R.id.chapelHour_listView);
 
@@ -57,6 +81,7 @@ public class chapel_hour_fragment extends Fragment {
         return view;
     }
 
+
     public class Connection extends AsyncTask<Void,Void,Void>
     {
 
@@ -67,17 +92,36 @@ public class chapel_hour_fragment extends Fragment {
             try {
                 doc = Jsoup.connect("https://www.biola.edu/chapel").get();
 
+
                 for(org.jsoup.nodes.Element row: doc.select(
                         "ul.chapel-list.active li"))
                 {
-                    final String ticker =
-                            row.select("li:nth-of-type(1) > .item-body > .title").text();
-                    tryText.setText(ticker);
-                }
+
+                    if(row.select("li:nth-of-type(1).item-body.title").text().equals(" ")){
+                        continue;
+                    }
+                    else
+                    {
+
+                        chapel[chapelCount] = new chapelInfo
+                                (
+                                row.select("> .datetime").text(),
+                                row.select("> .item-body > .title").text(),
+                                row.select("> .item-body > .subtitle").text(),
+                                row.select("> .item-body > .location").text()
+                                );
+
+
+
+                        chapelCount++;
+
+                    }
+                            }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             return null;
         }
     }

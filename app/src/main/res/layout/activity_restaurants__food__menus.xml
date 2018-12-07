@@ -14,7 +14,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:gravity="fill_vertical"
-        android:text="Restaurant Menu"
+        android:text="@string/restaurant_menus"
         android:textColor="@color/TabBarColor"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,6 @@
         app:menu="@menu/tab_items" />
 
 
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="289dp"
@@ -44,7 +43,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:gravity="fill_vertical"
-        android:text="Dining"
+        android:text="@string/restaurantsiconlabel"
         android:textColor="@color/TabBarColor"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,6 +59,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="@string/biola_icon_white_description"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

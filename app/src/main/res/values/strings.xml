@@ -49,6 +49,8 @@
     <string name="title_activity_hours">activity_hours</string>
     <string name="chapel_hours_tab_name">Chapel Hours</string>
     <string name="building_hours_tab_name">Building Hours</string>
+    <string name="restaurant_menus">Restaurant Menu</string>
+    <string name="biola_logo">Biola Logo</string>
 
 
 </resources>

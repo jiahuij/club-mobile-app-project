@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class hour_tab_frag_1 extends Fragment {
+public class building_hour_fragment extends Fragment {
 
     @Nullable
     @Override
@@ -26,7 +26,7 @@ public class hour_tab_frag_1 extends Fragment {
         View view = inflater.inflate(R.layout.building_hours_fragment,container,false);
         ////////////////adds array into the listview
         String[] restaurantsArray = new String[] {
-                "Building 1     12:00pm-8:00pm",
+                "fd 1     12:00pm-8:00pm",
                 "Building 2     12:00pm-8:00pm",
                 "Building 3     12:00pm-8:00pm",
                 "Building 4     12:00pm-8:00pm",

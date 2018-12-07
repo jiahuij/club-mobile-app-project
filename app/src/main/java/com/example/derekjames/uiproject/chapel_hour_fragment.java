@@ -60,9 +60,13 @@ public class chapel_hour_fragment extends Fragment {
         for(int i = 0; i<chapelCount; i++)
         {
 
-            buf=chapel[i].date+="\n";
+            buf="Date: ";
+            buf+=chapel[i].date+="\n";
+            buf+="Title: ";
             buf+=chapel[i].title+="\n";
+            buf+="Speaker: ";
             buf+=chapel[i].speaker+="\n";
+            buf+="Location: ";
             buf+=chapel[i].location;
             restaurantsArray[i]=buf;
 

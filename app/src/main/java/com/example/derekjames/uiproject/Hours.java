@@ -174,10 +174,10 @@ public class Hours extends AppCompatActivity {
             switch (position)
             {
                 case 0:
-                    fragment = new hour_tab_frag_1();
+                    fragment = new chapel_hour_fragment();
                     break;
                 case 1:
-                    fragment = new chapel_hour_fragment();
+                    fragment = new building_hour_fragment();
                     break;
             }
             return fragment;

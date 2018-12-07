@@ -1,5 +1,6 @@
 package com.example.derekjames.uiproject;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,15 +10,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.jsoup.Jsoup;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import java.io.IOException;
 
 
 public class chapel_hour_fragment extends Fragment {
+
+    TextView tryText;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.chapel_hour_fragment,container,false);
+        tryText = view.findViewById(R.id.tryText);
+
+
+        new Connection().execute();
+
 
         ////////////////adds array into the listview
         String[] restaurantsArray = new String[] {
@@ -40,5 +55,30 @@ public class chapel_hour_fragment extends Fragment {
         listView.setAdapter(listViewAdapter);
 
         return view;
+    }
+
+    public class Connection extends AsyncTask<Void,Void,Void>
+    {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            org.jsoup.nodes.Document doc = null;
+            try {
+                doc = Jsoup.connect("https://www.biola.edu/chapel").get();
+
+                for(org.jsoup.nodes.Element row: doc.select(
+                        "ul.chapel-list.active li"))
+                {
+                    final String ticker =
+                            row.select("li:nth-of-type(1) > .item-body > .title").text();
+                    tryText.setText(ticker);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }

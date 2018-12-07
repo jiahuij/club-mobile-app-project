@@ -137,20 +137,37 @@ public class Restaurants_Main extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            org.jsoup.nodes.Document doc = null;
             String url = "https://www.biola.edu/dining-services/locations";
-            String html = "";
+            List<String> Restaraunts = new ArrayList<String>();
+            String x = "";
+            int count = 0;
             try {
-                Document doc = Jsoup.connect(url).maxBodySize(0).get();
-                String title = doc.title();
-                html = doc.html();
-                Element element = doc.body();
-                //Log.d("html", String.valueOf(element));
+                doc = Jsoup.connect(url).get();
+                for (org.jsoup.nodes.Element row: doc.select("div.col-sm-12 div"))
+                {
+                    x = row.select(" > h3").text();
+                    if(x.equals(" ")){
+                        continue;
+                    }
+                    else {
+                        //Restaraunts.add(row.select("> .col-md-4:nth-of-type(1) > h3").text());
+                        //x = row.select(" > h3").text();
+                        Log.d("h3: ", x);
+                        Restaraunts.add(x);
+                        count++;
+                    }
+                }
 
-                Log.d("title", title);
+
             }catch (IOException e) {
 
             }
-            Log.d("html", html);
+            Log.d("size", String.valueOf(Restaraunts.size()));
+
+            /*for (int i = 0; i < ; i++) {
+                Log.d("", Restaraunts.get(i));
+            }*/
 
 
 

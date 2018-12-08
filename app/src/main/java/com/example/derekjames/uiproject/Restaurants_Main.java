@@ -29,7 +29,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
 public class Restaurants_Main extends AppCompatActivity {
+
+    List<String> Restaraunts = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +42,13 @@ public class Restaurants_Main extends AppCompatActivity {
 
     ////////////creates and formats the listView
         final String[] restaurantsArray = new String[] {
-                "Eagles Nest",
+              /*  "Eagles Nest",
                 "Common Grounds",
                 "Heritage Cafe",
                 "Talon",
                 "Caf",
                 "Blackstone Cafe",
-                "Coffee Cart"
+                "Coffee Cart"*/
         };
         Integer[] imageId = {
                 R.drawable.eaglesnest,
@@ -117,21 +121,42 @@ public class Restaurants_Main extends AppCompatActivity {
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("Position", String.valueOf(position));
-                String restaurant = restaurantsArray[position];
+              Log.d("Position", String.valueOf(position));
+              String restaurant = Restaraunts.get(position);
                 Intent intent = new Intent(Restaurants_Main.this,
                         com.example.derekjames.uiproject.Restaurants_Food_Menus.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("RestaurantName", restaurant);
+                intent.putExtra("position", position);
                 startActivity(intent);
-            }
+          }
         };
         restaurantListView.setOnItemClickListener(itemClickListener);
 
-        new jsoupconnect().execute();
-
+        try {
+            Void ab = new jsoupconnect().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < Restaraunts.size(); i++) {
+            Log.d("", Restaraunts.get(i));
+        }
+        ///setting the list view
+        final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, Restaraunts) {
+            @Override public View getView(int pos, View convertView, ViewGroup parent) {
+                View view = super.getView(pos, convertView,parent);
+                ViewGroup.LayoutParams parameters = view.getLayoutParams();
+                parameters.height = 400;
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                view.setLayoutParams(parameters);
+                text.setTextSize(30);
+                return  view;
+            }
+        };
+        restaurantListView.setAdapter(arrayAdapter2);
     }
-
 
     public class jsoupconnect extends AsyncTask<Void, Void, Void> {
 
@@ -139,41 +164,38 @@ public class Restaurants_Main extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             org.jsoup.nodes.Document doc = null;
             String url = "https://www.biola.edu/dining-services/locations";
-            List<String> Restaraunts = new ArrayList<String>();
-            String x = "";
+
+            //String x = "";
             int count = 0;
             try {
                 doc = Jsoup.connect(url).get();
                 for (org.jsoup.nodes.Element row: doc.select("div.col-sm-12 div"))
                 {
-                    x = row.select(" > h3").text();
-                    if(x.equals(" ")){
-                        continue;
-                    }
-                    else {
-                        //Restaraunts.add(row.select("> .col-md-4:nth-of-type(1) > h3").text());
-                        //x = row.select(" > h3").text();
-                        Log.d("h3: ", x);
-                        Restaraunts.add(x);
-                        count++;
-                    }
+                       //x = String.valueOf(row.select("> h3").text());
+                       if (row.select("> h3").text().equals("")) {
+                           continue;
+                       } else {
+                           //Restaraunts.add(row.select("> .col-md-4:nth-of-type(1) > h3").text());
+                           //x = row.select(" > h3").text();
+                           //Log.d("h3: ", x);
+                           Restaraunts.add(row.select("> h3").text());
+                           count++;
+                       }
                 }
-
 
             }catch (IOException e) {
 
             }
             Log.d("size", String.valueOf(Restaraunts.size()));
 
-            /*for (int i = 0; i < ; i++) {
-                Log.d("", Restaraunts.get(i));
-            }*/
+
 
 
 
             return null;
         }
     }
+
 
 
 

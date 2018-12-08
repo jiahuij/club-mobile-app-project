@@ -2,6 +2,7 @@ package com.example.derekjames.uiproject;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -9,21 +10,29 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class Restaurants_Food_Menus extends AppCompatActivity {
 
+
+    List<String> menuCategory = new ArrayList<String>();
+    String restaurantName = "";
+    String url = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,12 +81,41 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         ////////////////////////////////////////
 
         Intent startIntent = getIntent();
-        String restaurantName = startIntent.getStringExtra("RestaurantName");
+        restaurantName = startIntent.getStringExtra("RestaurantName");
+        int ItemClicked = startIntent.getIntExtra("position", 0);
+
+        //set url
+        url = "";
+        switch (ItemClicked) {
+            case 0 : //caf
+                //return true;
+                break;
+            case 1 : // eagles
+                url = "https://www.tapingo.com/order/restaurant/eagles-nest-biola/";
+                //return true;
+                break;
+            case 2 : //commons
+                url = "https://www.tapingo.com/order/restaurant/common-grounds-biola/";
+                break;
+            case 3 : //coffe cart
+                
+                break;
+            case 4 : //talon
+                url = "https://www.tapingo.com/order/restaurant/talon-biola/";
+                break;
+            case 5 :
+                url = "https://www.tapingo.com/order/restaurant/blackstone-cafe-biola/";
+                break;
+            case 6 :
+                url = "https://www.tapingo.com/order/restaurant/heritage-cafe/";
+                break;
+        }
+
         TextView restaurantNameTextView = (TextView) findViewById(R.id.RestaurantTitle);
         restaurantNameTextView.setText(restaurantName);
 
         ////////////////adds array into the listview
-       final String[] restaurantsArray2 = new String[] {
+       String[] restaurantsArray = new String[] {
                 "Menu Item 1: jskldfjskldajkiojs",
                 "Menu Item 3: jskldfjskldajfksds",
                 "Menu Item 4: jskldfjskldajfeiojs",
@@ -86,7 +124,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                 "Menu Item 7: jskldfjskldajfksiojs",
         };
         final ListView restaurantListView = (ListView) findViewById(R.id.RestaurantsMenuListView);
-        final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray2));
+        final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray));
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
             @Override public View getView(int pos, View convertView, ViewGroup parent) {
                 View view = super.getView(pos, convertView,parent);
@@ -102,21 +140,28 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("Position", String.valueOf(position));
-                String type = restaurantsArray2[position];
-                Intent intent = new Intent(Restaurants_Food_Menus.this,
-                        com.example.derekjames.uiproject.Restaurants_Food_Menus_2.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("types", type);
-                startActivity(intent);
+        try {
+            Void ab = new jsoupconnect().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < menuCategory.size(); i++) {
+            Log.d("", menuCategory.get(i));
+        }
+        final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, menuCategory) {
+            @Override public View getView(int pos, View convertView, ViewGroup parent) {
+                View view = super.getView(pos, convertView,parent);
+                ViewGroup.LayoutParams parameters = view.getLayoutParams();
+                parameters.height = 400;
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                view.setLayoutParams(parameters);
+                text.setTextSize(30);
+                return  view;
             }
         };
-        restaurantListView.setOnItemClickListener(itemClickListener);
+        restaurantListView.setAdapter(arrayAdapter2);
 
 
     }
@@ -145,6 +190,109 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
             Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public class jsoupconnect extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            org.jsoup.nodes.Document doc = null;
+            //String url = "https://www.tapingo.com/order/restaurant/eagles-nest-biola/";
+
+            //String x = "";
+            int count = 0;
+            try {
+                doc = Jsoup.connect(url).get();
+                for (org.jsoup.nodes.Element row: doc.select("div.category_holder"))
+                {
+
+                    menuCategory.add(row.select("> div").text());
+
+                }
+            }catch (IOException e) {
+
+            }
+           // Log.d("menuCategory.size()", String.valueOf(menuCategory.size()));
+
+
+
+
+
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

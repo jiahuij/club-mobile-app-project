@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -76,7 +77,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         restaurantNameTextView.setText(restaurantName);
 
         ////////////////adds array into the listview
-       String[] restaurantsArray = new String[] {
+       final String[] restaurantsArray2 = new String[] {
                 "Menu Item 1: jskldfjskldajkiojs",
                 "Menu Item 3: jskldfjskldajfksds",
                 "Menu Item 4: jskldfjskldajfeiojs",
@@ -85,7 +86,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                 "Menu Item 7: jskldfjskldajfksiojs",
         };
         final ListView restaurantListView = (ListView) findViewById(R.id.RestaurantsMenuListView);
-        final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray));
+        final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray2));
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
             @Override public View getView(int pos, View convertView, ViewGroup parent) {
                 View view = super.getView(pos, convertView,parent);
@@ -102,6 +103,20 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
 
 
 
+
+        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Position", String.valueOf(position));
+                String restaurants = restaurantsArray2[position];
+                Intent intent = new Intent(Restaurants_Food_Menus.this,
+                        com.example.derekjames.uiproject.Restaurants_Food_Menus_2.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("RestaurantNames", restaurants);
+                startActivity(intent);
+            }
+        };
+        restaurantListView.setOnItemClickListener(itemClickListener);
 
 
     }

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -81,6 +82,18 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         });
         ////////////////////////////////////////
 
+        Button fmbtn = findViewById(R.id.fmbutn);
+
+        fmbtn.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Restaurants_Food_Menus.this,
+                        com.example.derekjames.uiproject.Restaurants_Main.class);
+                startActivity(intent);
+            }
+        });
+
+
         Intent startIntent = getIntent();
         restaurantName = startIntent.getStringExtra("RestaurantName");
         int ItemClicked = startIntent.getIntExtra("position", 0);
@@ -98,7 +111,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
             case 2 : //commons
                 url = "https://www.tapingo.com/order/restaurant/common-grounds-biola/";
                 break;
-            case 3 : //coffe cart
+            case 3 : //coffee cart
                 
                 break;
             case 4 : //talon

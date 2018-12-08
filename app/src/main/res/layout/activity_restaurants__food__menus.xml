@@ -10,13 +10,15 @@
         android:id="@+id/RestaurantTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:gravity="fill_vertical"
         android:text="@string/restaurant_menus"
         android:textColor="@color/TabBarColor"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/RestaurantsMenuListView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 

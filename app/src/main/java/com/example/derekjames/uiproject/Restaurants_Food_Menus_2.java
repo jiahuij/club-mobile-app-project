@@ -10,8 +10,16 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Restaurants_Food_Menus_2 extends AppCompatActivity {
     @Override
@@ -59,6 +67,31 @@ public class Restaurants_Food_Menus_2 extends AppCompatActivity {
                 return true;
             }
         });
+
+        Intent startIntent = getIntent();
+        ////////////////adds array into the listview
+        final String[] restaurantsArray3 = new String[] {
+                "Menu Item 1: jskldfjskldajkiojs",
+                "Menu Item 3: jskldfjskldajfksds",
+                "Menu Item 4: jskldfjskldajfeiojs",
+                "Menu Item 5: jskldfjskiojs",
+                "Menu Item 6: jskldfjskojs",
+                "Menu Item 7: jskldfjskldajfksiojs",
+        };
+        final ListView restaurantListView = (ListView) findViewById(R.id.RestaurantsMenuListView2);
+        final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray3));
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
+            @Override public View getView(int pos, View convertView, ViewGroup parent) {
+                View view = super.getView(pos, convertView,parent);
+                ViewGroup.LayoutParams parameters = view.getLayoutParams();
+                parameters.height = 300;
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                view.setLayoutParams(parameters);
+                text.setTextSize(20);
+                return  view;
+            }
+        };
+        restaurantListView.setAdapter(arrayAdapter);
 
     }
 

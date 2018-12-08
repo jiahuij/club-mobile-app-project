@@ -46,6 +46,8 @@ public class chapel_hour_fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.chapel_hour_fragment,container,false);
+        chapelCount = 0;
+
 
         try {
             Void ab = new Connection().execute().get();

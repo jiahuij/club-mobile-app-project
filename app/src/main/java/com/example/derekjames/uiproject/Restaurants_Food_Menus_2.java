@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -65,6 +66,17 @@ public class Restaurants_Food_Menus_2 extends AppCompatActivity {
                         return true;
                 }
                 return true;
+            }
+        });
+
+        Button fmbtn = findViewById(R.id.fmbutn2);
+
+        fmbtn.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Restaurants_Food_Menus_2.this,
+                        com.example.derekjames.uiproject.Restaurants_Food_Menus.class);
+                startActivity(intent);
             }
         });
 

@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -137,6 +138,22 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
             }
         };
         restaurantListView.setAdapter(arrayAdapter);
+
+        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Position", String.valueOf(position));
+                String type = menuCategory.get(position);
+                Intent intent = new Intent(Restaurants_Food_Menus.this,
+                        com.example.derekjames.uiproject.Restaurants_Food_Menus_2.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("type", type);
+                intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        };
+        restaurantListView.setOnItemClickListener(itemClickListener);
+
         /////////////////////////////////////////////////////////////////////////////////////////////
 
 

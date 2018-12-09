@@ -116,17 +116,17 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         restaurantNameTextView.setText(restaurantName);
 
         ////////////////adds array into the listview
-       String[] restaurantsArray = new String[] {
+       /*String[] restaurantsArray = new String[] {
                 "Menu Item 1: jskldfjskldajkiojs",
                 "Menu Item 3: jskldfjskldajfksds",
                 "Menu Item 4: jskldfjskldajfeiojs",
                 "Menu Item 5: jskldfjskiojs",
                 "Menu Item 6: jskldfjskojs",
                 "Menu Item 7: jskldfjskldajfksiojs",
-        };
+        };*/
         final ListView restaurantListView = (ListView) findViewById(R.id.RestaurantsMenuListView);
-        final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray));
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
+        //final List<String> myList = new ArrayList<String>(Arrays.asList(restaurantsArray));
+       /* final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, myList) {
             @Override public View getView(int pos, View convertView, ViewGroup parent) {
                 View view = super.getView(pos, convertView,parent);
                 ViewGroup.LayoutParams parameters = view.getLayoutParams();
@@ -136,8 +136,8 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                 text.setTextSize(20);
                 return  view;
             }
-        };
-        restaurantListView.setAdapter(arrayAdapter);
+        };*/
+        //restaurantListView.setAdapter(arrayAdapter);
 
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
@@ -149,6 +149,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("type", type);
                 intent.putExtra("position", position);
+                intent.putExtra("url", url);
                 startActivity(intent);
             }
         };
@@ -167,18 +168,24 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         for (int i = 0; i < menuCategory.size(); i++) {
             Log.d("", menuCategory.get(i));
         }
-        final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String> (this, android.R.layout.simple_list_item_1, menuCategory) {
-            @Override public View getView(int pos, View convertView, ViewGroup parent) {
-                View view = super.getView(pos, convertView,parent);
-                ViewGroup.LayoutParams parameters = view.getLayoutParams();
-                parameters.height = 400;
-                TextView text = (TextView) view.findViewById(android.R.id.text1);
-                view.setLayoutParams(parameters);
-                text.setTextSize(30);
-                return  view;
-            }
-        };
-        restaurantListView.setAdapter(arrayAdapter2);
+        if (menuCategory.isEmpty() == true) {
+            restaurantNameTextView.setText("Sorry were closed.");
+        }
+        else {
+            final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuCategory) {
+                @Override
+                public View getView(int pos, View convertView, ViewGroup parent) {
+                    View view = super.getView(pos, convertView, parent);
+                    ViewGroup.LayoutParams parameters = view.getLayoutParams();
+                    parameters.height = 400;
+                    TextView text = (TextView) view.findViewById(android.R.id.text1);
+                    view.setLayoutParams(parameters);
+                    text.setTextSize(30);
+                    return view;
+                }
+            };
+            restaurantListView.setAdapter(arrayAdapter2);
+        }
 
 
     }
@@ -207,32 +214,6 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
             Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

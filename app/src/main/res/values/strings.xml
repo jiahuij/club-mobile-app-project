@@ -2,7 +2,7 @@
     <string name="app_name">Biola</string>
     <string name="title_activity_chime__main">Chime_Main</string>
     <string name="MainMenuchimeBtnName">Chime</string>
-    <string name="MainMenuBuildingHourBtnName">Hours</string>
+    <string name="MainMenuBuildingHourBtnName">Chapel</string>
     <string name="MainMenuCampusMapBtnName">Map</string>
     <string name="MainMenuEateriesBtnName">Dining</string>
     <string name="main_menu_red_background">main menu red background</string>
@@ -12,7 +12,7 @@
     <string name="restaurantsicon">restaurantsicon</string>
     <string name="chimesiconlabel">Chimes</string>
     <string name="mapiconlabel">Map</string>
-    <string name="buildinghoursiconlabel">Buildings</string>
+    <string name="buildinghoursiconlabel">Chapel</string>
     <string name="restaurantsiconlabel">Dining</string>
     <string name="tab_bar">tab_bar</string>
     <string name="Chime_news_Btn_Name">NEWS</string>

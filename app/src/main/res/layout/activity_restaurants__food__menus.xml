@@ -38,12 +38,12 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="289dp"
+        android:layout_width="218dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginStart="8dp"
         android:gravity="fill_vertical"
         android:text="@string/restaurantsiconlabel"
         android:textColor="@color/TabBarColor"
@@ -56,14 +56,11 @@
         android:id="@+id/imageView9"
         android:layout_width="56dp"
         android:layout_height="54dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="14dp"
         android:contentDescription="@string/biola_icon_white_description"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fmbutn"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/biola_icon_red" />
 
@@ -80,6 +77,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RestaurantTitle" />
+
+    <Button
+        android:id="@+id/fmbutn"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/actionModeCloseDrawable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

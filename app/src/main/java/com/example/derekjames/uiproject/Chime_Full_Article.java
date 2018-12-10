@@ -1,6 +1,8 @@
 package com.example.derekjames.uiproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -9,15 +11,43 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.concurrent.ExecutionException;
 
 public class Chime_Full_Article extends AppCompatActivity {
+
+    private String webUrl,
+                   title="",
+                   imgUrl="",
+                    body="";
+
+    private TextView articleTitle;
+    private TextView articleBody;
+    private ImageView articlePic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chime__full__article);
+
+        articleTitle = findViewById(R.id.articleTitle);
+        articleBody = findViewById(R.id.articleBody);
+        articlePic = findViewById(R.id.articlePic);
+
+
+        if(getIntent().hasExtra("url"))
+          webUrl =getIntent().getStringExtra("url");
 
 
         /////Switch between tabs
@@ -32,7 +62,7 @@ public class Chime_Full_Article extends AppCompatActivity {
 
                     case R.id.chimesicon : ///////Go to chimes page
                         Intent intent1 = new Intent(Chime_Full_Article.this,
-                                com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                                Chime_Main.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         return true;
@@ -60,10 +90,74 @@ public class Chime_Full_Article extends AppCompatActivity {
         });
         ////////////////////////////////////////
 
+        try {
+            Void temp = new Connection().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Button fmbtn = findViewById(R.id.fmbutn3);
+
+
+        fmbtn.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Chime_Full_Article.this,
+                        Chime_Main.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
+
+        articleTitle.setText(title);
+        Picasso.get().load(imgUrl).into(articlePic);
+        articleBody.setText(body);
+
+    }
+
+    public class Connection extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            org.jsoup.nodes.Document doc = null;
+
+            try {
+                doc = Jsoup.connect(webUrl).get();
+
+
+                for (org.jsoup.nodes.Element row : doc.select("div.postarea")) {
+
+                    if (row.select("h1").text().equals("")) {
+                        continue;
+                    } else {
+
+                         title = row.select("h1.storyheadline").text();
+                         imgUrl = row.select("img").attr("src");
+                         body="";
+
+                        for(org.jsoup.nodes.Element p : doc.select("span.storyContent p"))
+                        {
+                            body += p.text();
+                            body +="\n";
+                            body +="\n";
+                        }
+                    }
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
     }
 
 
-
+    @SuppressLint("RestrictedApi")
     private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/White"
     android:fitsSystemWindows="true"
-    tools:context=".Chime_Main_Tab">
+    tools:context=".Chime_Main">
 
 
     <android.support.design.widget.BottomNavigationView
@@ -66,49 +66,25 @@
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabTextColor="@color/textColor"
             android:background="@color/TabBarColor"
-            app:tabTextColor="@android:color/white"
-            app:tabSelectedTextColor="@android:color/darker_gray"
-            app:tabIndicatorColor="@color/MainMenuBackGround"
-            app:tabMode="scrollable">
+            app:tabSelectedTextColor="@color/White"
+            app:tabIndicatorColor="@color/MainMenuBackGround">
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tab_text_1" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tab_text_2" />
 
-            <android.support.design.widget.TabItem
-                android:id="@+id/tabItem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_text_3" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tabItem4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_text_4" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tabItem5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_text_5" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tabItem6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_text_6" />
 
         </android.support.design.widget.TabLayout>
 

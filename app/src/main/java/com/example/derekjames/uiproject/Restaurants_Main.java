@@ -2,7 +2,6 @@ package com.example.derekjames.uiproject;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -11,7 +10,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +23,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -89,7 +85,7 @@ public class Restaurants_Main extends AppCompatActivity {
 
                     case R.id.chimesicon : ///////Go to chimes page
                        Intent intent1 = new Intent(Restaurants_Main.this,
-                            com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                            Chime_Main.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         return true;

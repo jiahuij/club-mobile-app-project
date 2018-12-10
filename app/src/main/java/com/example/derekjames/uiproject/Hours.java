@@ -68,7 +68,7 @@ public class Hours extends AppCompatActivity {
 
                     case R.id.chimesicon : ///////Go to chimes page
                         Intent intent1 = new Intent(Hours.this,
-                                com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                                Chime_Main.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         return true;
@@ -149,12 +149,6 @@ public class Hours extends AppCompatActivity {
             return fragment;
         }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.building_hours_fragment, container, false);
-            return rootView;
-        }
     }
 
     /**
@@ -170,16 +164,8 @@ public class Hours extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            Fragment fragment = null;
-            switch (position)
-            {
-                case 0:
-                    fragment = new chapel_hour_fragment();
-                    break;
-                case 1:
-                    fragment = new building_hour_fragment();
-                    break;
-            }
+            Fragment fragment =  new chapel_hour_fragment();
+
             return fragment;
         }
 

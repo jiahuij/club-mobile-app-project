@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class chime_news_fragment extends Fragment {
+public class chime_sport_fragment extends Fragment {
 
     public ArrayList<Chime_cardview> arrayListCard = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -32,7 +32,7 @@ public class chime_news_fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragment_chime__news__tab, container, false);
+        View view = inflater.inflate(R.layout.fragment_chime__sport__tab, container, false);
 
         inti(view);
 
@@ -84,10 +84,10 @@ public class chime_news_fragment extends Fragment {
 
 
                 try {
-                    doc = Jsoup.connect("https://chimesnewspaper.com/category/news").get();
+                    doc = Jsoup.connect("https://chimesnewspaper.com/category/sports").get();
                     pages++;
 
-                    for (org.jsoup.nodes.Element row : doc.select("div.sno-categoryview-7 div")) {
+                    for (org.jsoup.nodes.Element row : doc.select("div.sno-categoryview-6 div")) {
 
                         if (row.select("h2").text().equals("")) {
                             continue;

@@ -20,6 +20,7 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.DataObjectHo
 
     private Context context;
     private ArrayList<Chime_cardview> ListaCard;
+    public int cardPosition;
 
     public RViewAdapter(Context context, ArrayList<Chime_cardview> listaCard) {
         this.context = context;
@@ -35,27 +36,38 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.DataObjectHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final DataObjectHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final DataObjectHolder holder, final int position) {
 
         holder.title.setText(ListaCard.get(position).getTitle());
 
+        if(!ListaCard.get(position).getImg().isEmpty())
         Picasso.get().load(ListaCard.get(position).getImg()).into(holder.img);
+
+        cardPosition = position;
 
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Toast.makeText(v.getContext(),ListaCard.get(position).getHref(),Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(v.getContext(),"Position: " + holder.getAdapterPosition(),Toast.LENGTH_SHORT).show();
-
-                /*
-                Intent intent = new Intent(Chime_Main_Tab.this,
-                        com.example.derekjames.uiproject.Chime_Full_Article.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);*/
-
-
+                Intent intent = new Intent(context,Chime_Full_Article.class);
+                intent.putExtra("url",ListaCard.get(position).getHref());
+                context.startActivity(intent);
             }
         });
+
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(v.getContext(),ListaCard.get(position).getHref(),Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context,Chime_Full_Article.class);
+                intent.putExtra("url",ListaCard.get(position).getHref());
+                context.startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override

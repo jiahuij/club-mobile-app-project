@@ -1,7 +1,6 @@
 package com.example.derekjames.uiproject;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -14,11 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.jsoup.Jsoup;
-
-import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.concurrent.ExecutionException;
 
 public class Map extends AppCompatActivity {
     private WebView Webview;
@@ -56,7 +51,7 @@ public class Map extends AppCompatActivity {
 
                     case R.id.chimesicon: ///////Go to chimes page
                         Intent intent1 = new Intent(Map.this,
-                                com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                                Chime_Main.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         return true;

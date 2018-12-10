@@ -7,12 +7,7 @@ import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,16 +21,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 
-public class Chime_Main_Tab extends AppCompatActivity {
+public class Chime_Main extends AppCompatActivity {
 
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -46,7 +34,7 @@ public class Chime_Main_Tab extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        setContentView(R.layout.activity_chime__main__tab);
+        setContentView(R.layout.chime_main);
 
 
         // Create the adapter that will return a fragment for each of the three
@@ -75,25 +63,25 @@ public class Chime_Main_Tab extends AppCompatActivity {
                 switch (item.getItemId()) {
 
                     case R.id.chimesicon : ///////Go to chimes page
-                        Intent intent1 = new Intent(Chime_Main_Tab.this,
-                                com.example.derekjames.uiproject.Chime_Main_Tab.class);
+                        Intent intent1 = new Intent(Chime_Main.this,
+                                Chime_Main.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
                         return true;
                     case R.id.mapicon :
-                        Intent intent2 = new Intent(Chime_Main_Tab.this,
+                        Intent intent2 = new Intent(Chime_Main.this,
                                 com.example.derekjames.uiproject.Map.class);
                         intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent2);
                         return true;
                     case R.id.buildinghoursicon :
-                        Intent intent3 = new Intent(Chime_Main_Tab.this,
+                        Intent intent3 = new Intent(Chime_Main.this,
                                 com.example.derekjames.uiproject.Hours.class);
                         intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         return true;
                     case R.id.restaurantsicon :
-                        Intent intent4 = new Intent(Chime_Main_Tab.this,
+                        Intent intent4 = new Intent(Chime_Main.this,
                                 com.example.derekjames.uiproject.Restaurants_Main.class);
                         intent4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent4);
@@ -161,7 +149,7 @@ public class Chime_Main_Tab extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.fragment_chime__main__tab, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_chime__news__tab, container, false);
             return rootView;
         }
     }
@@ -185,19 +173,7 @@ public class Chime_Main_Tab extends AppCompatActivity {
                     fragment = new chime_news_fragment();
                     break;
                 case 1:
-                    fragment = new chime_news_fragment();
-                    break;
-                case 2:
-                    fragment = new chime_news_fragment();
-                    break;
-                case 3:
-                    fragment = new chime_news_fragment();
-                    break;
-                case 4:
-                    fragment = new chime_news_fragment();
-                    break;
-                case 5:
-                    fragment = new chime_news_fragment();
+                    fragment = new chime_sport_fragment();
                     break;
             }
             return fragment;
@@ -206,7 +182,7 @@ public class Chime_Main_Tab extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
     }
 

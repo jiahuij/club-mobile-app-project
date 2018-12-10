@@ -56,6 +56,11 @@
     <string name="article">Article</string>
     <string name="image">Chimes Article Image</string>
     <string name="Chimes_text">Chimes Article Text</string>
+    <string name="article_picture">article_picture</string>
+    <string name="article_content">Article Content</string>
+    <string name="load_percent">0 %</string>
+    <string name="biola_buddy">Biola Buddy</string>
+    <string name="biola_icon">Biola Icon</string>
 
 
 </resources>

@@ -11,16 +11,17 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/biola_icon_red"
         android:layout_above="@id/loadText"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="170dp"
-        android:layout_centerHorizontal="true"/>
+        android:contentDescription="@string/biola_icon"
+        app:srcCompat="@drawable/biola_icon_red" />
 
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Biola Buddy"
+        android:text="@string/biola_buddy"
         android:textStyle="bold"
         android:textColor="@color/TabBarColor"
         android:textSize="30sp"
@@ -33,7 +34,7 @@
         android:id="@+id/loadText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 %"
+        android:text="@string/load_percent"
         android:textColor="@color/TabBarColor"
         android:textSize="30sp"
         android:layout_above="@id/progressBar"

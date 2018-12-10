@@ -14,6 +14,7 @@ import android.widget.ListView;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 
@@ -64,10 +65,13 @@ public class chapel_hour_fragment extends Fragment {
 
             buf="Date: ";
             buf+=chapel[i].date+="\n";
+            buf+="\n";
             buf+="Title: ";
             buf+=chapel[i].title+="\n";
+            buf+="\n";
             buf+="Speaker: ";
             buf+=chapel[i].speaker+="\n";
+            buf+="\n";
             buf+="Location: ";
             buf+=chapel[i].location;
             restaurantsArray[i]=buf;
@@ -75,6 +79,8 @@ public class chapel_hour_fragment extends Fragment {
         }
 
         ListView listView = view.findViewById(R.id.chapelHour_listView);
+
+
 
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),

@@ -9,4 +9,5 @@
     <color name="TabBarColor">#8f2e2e</color>
     <color name="White">#ffffff</color>
     <color name="WhiteTransparent">#80ffffff</color>
+    <color name="cardBAck">#f5f5f5</color>
 </resources>

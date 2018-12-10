@@ -54,6 +54,8 @@
     <string name="backarrow">Back Arrow</string>
     <string name="Interactive_Map">Interactive Map</string>
     <string name="article">Article</string>
+    <string name="image">Chimes Article Image</string>
+    <string name="Chimes_text">Chimes Article Text</string>
 
 
 </resources>

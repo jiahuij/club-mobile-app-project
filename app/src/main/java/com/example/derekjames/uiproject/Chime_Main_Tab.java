@@ -1,5 +1,6 @@
 package com.example.derekjames.uiproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -9,6 +10,8 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -28,25 +31,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 public class Chime_Main_Tab extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private FloatingActionButton readMoreBtn;
 
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
@@ -55,16 +48,6 @@ public class Chime_Main_Tab extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_chime__main__tab);
 
-        readMoreBtn = findViewById(R.id.readMoreBtn);
-
-        readMoreBtn.setOnClickListener(new View.OnClickListener()  {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Chime_Main_Tab.this,
-                        com.example.derekjames.uiproject.Chime_ArticleList.class);
-                startActivity(intent);
-            }
-        });
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -122,8 +105,9 @@ public class Chime_Main_Tab extends AppCompatActivity {
         ////////////////////////////////////////
 
 
-
     }
+
+
 
 
     @Override
@@ -194,9 +178,29 @@ public class Chime_Main_Tab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            Fragment fragment = null;
+            switch (position)
+            {
+                case 0:
+                    fragment = new chime_news_fragment();
+                    break;
+                case 1:
+                    fragment = new chime_news_fragment();
+                    break;
+                case 2:
+                    fragment = new chime_news_fragment();
+                    break;
+                case 3:
+                    fragment = new chime_news_fragment();
+                    break;
+                case 4:
+                    fragment = new chime_news_fragment();
+                    break;
+                case 5:
+                    fragment = new chime_news_fragment();
+                    break;
+            }
+            return fragment;
         }
 
         @Override
@@ -209,8 +213,7 @@ public class Chime_Main_Tab extends AppCompatActivity {
 
 
 
-
-
+    @SuppressLint("RestrictedApi")
     private void  disableTabBarShift(BottomNavigationView view) {
         BottomNavigationMenuView tabBar = (BottomNavigationMenuView) view.getChildAt(0);
         try {

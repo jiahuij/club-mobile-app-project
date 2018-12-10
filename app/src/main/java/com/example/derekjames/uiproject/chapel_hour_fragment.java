@@ -95,6 +95,7 @@ public class chapel_hour_fragment extends Fragment {
         protected Void doInBackground(Void... voids) {
 
             org.jsoup.nodes.Document doc = null;
+
             try {
                 doc = Jsoup.connect("https://www.biola.edu/chapel").get();
 

@@ -111,6 +111,7 @@ public class Restaurants_Main extends AppCompatActivity {
                         intent4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent4);
                         return true;
+                        
                 }
                 return true;
             }

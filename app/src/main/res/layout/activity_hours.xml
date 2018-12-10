@@ -25,48 +25,38 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="0dp"
+        android:layout_width="133dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginStart="75dp"
-        android:gravity="fill_vertical|center_horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:gravity="fill_vertical"
+        android:textStyle="bold"
         android:text="@string/MainMenuBuildingHourBtnName"
         android:textColor="@color/TabBarColor"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/tabs"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="65dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="14dp"
         android:contentDescription="@string/biola_icon_white_description"
-        app:layout_constraintBottom_toTopOf="@+id/tabs"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/biola_icon_red" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:background="@color/TabBarColor"
-        app:layout_constraintBottom_toTopOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <android.support.design.widget.TabItem
@@ -87,15 +77,15 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="0dp"
-        android:layout_height="395dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toTopOf="@+id/tabBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabs"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

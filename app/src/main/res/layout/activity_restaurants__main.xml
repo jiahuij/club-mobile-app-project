@@ -37,16 +37,20 @@
 
   <TextView
       android:id="@+id/textView4"
-      android:layout_width="0dp"
+      android:layout_width="110dp"
       android:layout_height="75dp"
-      android:layout_marginLeft="35dp"
-      android:layout_marginStart="35dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_marginStart="8dp"
       android:gravity="fill_vertical"
       android:text="@string/restaurantsiconlabel"
       android:textColor="@color/TabBarColor"
       android:textSize="36sp"
+      android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/RestaurantsListView"
-      app:layout_constraintStart_toEndOf="@+id/imageView9"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
   <ImageView
@@ -54,14 +58,14 @@
       android:layout_width="60dp"
       android:layout_height="55dp"
       android:layout_marginBottom="10dp"
-      android:layout_marginLeft="78dp"
-      android:layout_marginStart="78dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginRight="16dp"
       android:layout_marginTop="14dp"
       android:contentDescription="@string/biola_icon_white_description"
       app:layout_constraintBottom_toTopOf="@+id/RestaurantsListView"
-      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="1.0"
+      app:layout_constraintVertical_bias="0.0"
       app:srcCompat="@drawable/biola_icon_red" />
 
 </android.support.constraint.ConstraintLayout>

@@ -86,6 +86,12 @@ public class Restaurants_Food_Menus_2 extends AppCompatActivity {
             }
         });
 
+        Intent startIntent = getIntent();
+        final int ItemClicked = startIntent.getIntExtra("position", 0);
+        final int ItemClickedSecondPage = startIntent.getIntExtra("positionSecondpage", 0);
+        final String RestarauntName = startIntent.getStringExtra("RestarauntName");
+        url = startIntent.getStringExtra("url");
+
         Button fmbtn = findViewById(R.id.fmbutn2);
 
         fmbtn.setOnClickListener(new View.OnClickListener()  {
@@ -93,13 +99,15 @@ public class Restaurants_Food_Menus_2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Restaurants_Food_Menus_2.this,
                         com.example.derekjames.uiproject.Restaurants_Food_Menus.class);
+                intent.putExtra("position", ItemClicked);
+                intent.putExtra("RestarauntName", RestarauntName);
+                intent.putExtra("url", url);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
 
-        Intent startIntent = getIntent();
-        int ItemClicked = startIntent.getIntExtra("position", 0);
-        url = startIntent.getStringExtra("url");
+
 
 
 
@@ -136,9 +144,10 @@ public class Restaurants_Food_Menus_2 extends AppCompatActivity {
         }
 
         String ItemClickedString = startIntent.getStringExtra("type");
+        //String ItemClickedStringReplaced = ItemClickedString.replaceAll("\\(.*\\)", "");
         TextView restaurantNameTextView = (TextView) findViewById(R.id.RestaurantTitle);
         restaurantNameTextView.setText(ItemClickedString);
-        ArrayList<String> items = new ArrayList<String>(FoodItems.get(ItemClicked));
+        ArrayList<String> items = new ArrayList<String>(FoodItems.get(ItemClickedSecondPage));
 
             final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items) {
                 @Override
@@ -221,11 +230,14 @@ public class Restaurants_Food_Menus_2 extends AppCompatActivity {
                     for (org.jsoup.nodes.Element row2: row.select("li")) {
                         // FoodItem.add(row.select("> .name").text());
                         String temp = row2.select("> .name").text();
+                        String tempPrice = ("$" + row2.select("> .price").text()) + " - " + temp;
                         //Log.d("category:", String.valueOf(count));
                         //Log.d("name", temp);
                         //tempList.add(temp);
-                        tempList.add(temp);
-                        count2++;
+                        if (temp != "") {
+                            tempList.add(tempPrice);
+                        }
+                        //count2++;
                     }
                     //count++;
                     FoodItems.add(new ArrayList<String>(tempList));

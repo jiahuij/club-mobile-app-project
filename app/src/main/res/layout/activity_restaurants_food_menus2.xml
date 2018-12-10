@@ -27,6 +27,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginStart="2dp"
+        android:choiceMode="none"
         app:layout_constraintBottom_toTopOf="@+id/tabBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

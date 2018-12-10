@@ -126,7 +126,7 @@ public class Restaurants_Main extends AppCompatActivity {
                 Intent intent = new Intent(Restaurants_Main.this,
                         com.example.derekjames.uiproject.Restaurants_Food_Menus.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("RestaurantName", restaurant);
+                intent.putExtra("RestarauntName", restaurant);
                 intent.putExtra("position", position);
                 startActivity(intent);
           }

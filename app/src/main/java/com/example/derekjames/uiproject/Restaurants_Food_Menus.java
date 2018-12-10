@@ -40,7 +40,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants__food__menus);
 
-
+        menuCategory.clear();
         /////Switch between tabs
         BottomNavigationView tabBar = (BottomNavigationView) findViewById(R.id.tabBar);
         disableTabBarShift(tabBar);
@@ -89,20 +89,26 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Restaurants_Food_Menus.this,
                         com.example.derekjames.uiproject.Restaurants_Main.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
 
 
         Intent startIntent = getIntent();
-        restaurantName = startIntent.getStringExtra("RestaurantName");
-        int ItemClicked = startIntent.getIntExtra("position", 0);
+
+        restaurantName = startIntent.getStringExtra("RestarauntName");
+        if (restaurantName == "") {
+            restaurantName = "No Name Found";
+        }
+        final int ItemClickedFirstPage = startIntent.getIntExtra("position", 0);
 
         //set url
         url = "";
-        switch (ItemClicked) {
+        switch (ItemClickedFirstPage) {
             case 0 : //caf
-                //return true;
+                url = "Caf";
+
                 break;
             case 1 : // eagles
                 url = "https://www.tapingo.com/order/restaurant/eagles-nest-biola/";
@@ -112,7 +118,7 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                 url = "https://www.tapingo.com/order/restaurant/common-grounds-biola/";
                 break;
             case 3 : //coffee cart
-                
+                url = "Coffee Cart";
                 break;
             case 4 : //talon
                 url = "https://www.tapingo.com/order/restaurant/talon-biola/";
@@ -161,8 +167,11 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
                         com.example.derekjames.uiproject.Restaurants_Food_Menus_2.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("type", type);
-                intent.putExtra("position", position);
+                intent.putExtra("positionSecondpage", position);
+                intent.putExtra("position", ItemClickedFirstPage);
+                intent.putExtra("RestarauntName", restaurantName);
                 intent.putExtra("url", url);
+
                 startActivity(intent);
             }
         };
@@ -170,35 +179,50 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
 
         /////////////////////////////////////////////////////////////////////////////////////////////
 
+        if (url == "Caf"  || url == "Coffee Cart") {
+           if (url == "Caf") {
 
-        try {
-            Void ab = new jsoupconnect().execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < menuCategory.size(); i++) {
-            Log.d("", menuCategory.get(i));
-        }
-        if (menuCategory.isEmpty() == true) {
-            restaurantNameTextView.setText("Sorry were closed.");
+               menuCategory.add("$6.15 - Cafe Breakfast");
+               menuCategory.add("$7.79 - Cafe Lunch");
+               menuCategory.add("$8.93 - Cafe Dinner");
+               restaurantNameTextView.setText(restaurantName);
+               restaurantListView.setEnabled(false);
+           }
+           else if (url == "Coffee Cart") {
+               restaurantNameTextView.setText(restaurantName + "(No Menu)");
+           }
         }
         else {
-            final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuCategory) {
-                @Override
-                public View getView(int pos, View convertView, ViewGroup parent) {
-                    View view = super.getView(pos, convertView, parent);
-                    ViewGroup.LayoutParams parameters = view.getLayoutParams();
-                    parameters.height = 400;
-                    TextView text = (TextView) view.findViewById(android.R.id.text1);
-                    view.setLayoutParams(parameters);
-                    text.setTextSize(30);
-                    return view;
-                }
-            };
-            restaurantListView.setAdapter(arrayAdapter2);
+            try {
+                Void ab = new jsoupconnect().execute().get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+            /*for (int i = 0; i < menuCategory.size(); i++) {
+                Log.d("", menuCategory.get(i));
+            }*/
+            if (menuCategory.isEmpty() == true && url != "Coffee Cart") {
+                restaurantNameTextView.setText("Sorry were closed.");
+
+            } else {
+                final ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuCategory) {
+                    @Override
+                    public View getView(int pos, View convertView, ViewGroup parent) {
+                        View view = super.getView(pos, convertView, parent);
+                        ViewGroup.LayoutParams parameters = view.getLayoutParams();
+                        parameters.height = 400;
+                        TextView text = (TextView) view.findViewById(android.R.id.text1);
+                        view.setLayoutParams(parameters);
+                        text.setTextSize(30);
+                        return view;
+                    }
+                };
+                restaurantListView.setAdapter(arrayAdapter2);
+            }
+
 
 
     }
@@ -237,14 +261,16 @@ public class Restaurants_Food_Menus extends AppCompatActivity {
             org.jsoup.nodes.Document doc = null;
             //String url = "https://www.tapingo.com/order/restaurant/eagles-nest-biola/";
 
-            //String x = "";
+            String x = "", y;
+
             int count = 0;
             try {
                 doc = Jsoup.connect(url).get();
                 for (org.jsoup.nodes.Element row: doc.select("div.category_holder"))
                 {
-
-                    menuCategory.add(row.select("> div").text());
+                    x = row.select("> div").text();
+                    y = x.replaceAll("\\(.*\\)", "");
+                    menuCategory.add(y);
 
                 }
             }catch (IOException e) {

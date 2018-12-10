@@ -6,22 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Map">
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/RestaurantsListView"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/biola_icon_red" />
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/tabBar"
         android:layout_width="match_parent"
@@ -54,7 +38,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:gravity="fill_vertical"
-        android:text="Interactive Map"
+        android:text="@string/Interactive_Map"
         android:textColor="@color/TabBarColor"
         android:textSize="40sp"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
@@ -69,6 +53,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/biola_icon_white_description"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
